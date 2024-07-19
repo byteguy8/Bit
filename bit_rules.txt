@@ -1,0 +1,32 @@
+//////Expressions//////
+expression ::= assignment
+assignment ::= IDENTIFIER "=" assignment | struct_creation
+or ::= and ("||" and)*
+and ::= equality ("&&" equality)*
+equality ::= comparison (("!=" | "==") comparison)*
+comparison ::= term ((">" | "<" | ">=" |"<=") term)*
+term ::= factor (("-" | "+") factor)*
+factor ::= unary (("/" | "*" | "%") unary)*
+unary ::= ("-" | "!") unary | call
+call ::= IDENTIFIER "(" ")" | primary
+call_args ::= expression ("," expression)*
+primary ::= NUMBER | STRING | FALSE | TRUE | IDENTIFIER
+
+//////Statements//////
+program ::= statement* EOF
+statement ::= declaration | no_declaration
+
+declaration ::= var_declaration
+var_declaration ::= ("bool" | "int") "mut"? IDENTIFIER ("=" expression)? ";"
+fn_declaration ::= "fn" "export"? IDENTIFIER "(" fn_params ")" (":" "int")? block
+fn_params ::= "int" IDENTIFIER ("," "int" IDENTIFIER)*
+
+no_declaration ::= print | return | block | if | while | expression_stmt;
+print ::= "print" expression ";"
+return ::= "return" ::= expression ";"
+break ::= "break" ";"
+continue ::= "continue" ";"
+block ::= "{" statements* "}"
+if ::= "if" "(" or_expr ")" block ("else" block)?
+while ::= "while" "(" or_expr ")" block
+expression_stmt ::= expression ";"

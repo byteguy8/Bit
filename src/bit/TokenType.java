@@ -1,0 +1,33 @@
+package bit;
+
+public enum TokenType {
+    PLUS, MINUS, SLASH, ASTERISK,
+    SEMICOLON, COLON, PERCENT,
+
+    // comparison
+    LESS_THAN, GREATER_THAN,
+    LESS_EQUALS, GREATER_EQUALS,
+    EQUALS_EQUALS, BANG_EQUALS,
+    // logical
+    AND, OR, BANG,
+
+    EQUALS, LEFT_PARENTHESIS, RIGHT_PARENTHESIS,
+    LEFT_BRACKET, RIGHT_BRACKET, COMMA,
+
+    // primitive types
+    I8_TYPE, I16_TYPE,
+    I32_TYPE, I64_TYPE,
+
+    BOOL_TYPE,
+    INT_TYPE,
+    STR_TYPE,
+
+    PRINT, FN, RETURN,
+    EXPORT, IF, ELSE, TRUE, FALSE,
+    WHILE, BREAK, CONTINUE,
+    STRUCT,
+
+    NUMBER, STRING, IDENTIFIER,
+
+    EOF
+}
