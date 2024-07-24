@@ -46,6 +46,10 @@ public class NameResolver implements Expression.Visitor<Void>, Statement.Visitor
     public Void visitCallExpr(CallExpr expr) {
         evaluate(expr.left);
 
+        if (expr.arguments != null)
+            for (Expression argument : expr.arguments)
+                evaluate(argument);
+
         return null;
     }
 
@@ -156,7 +160,7 @@ public class NameResolver implements Expression.Visitor<Void>, Statement.Visitor
 
     @Override
     public Void visitIfStmt(IfStmt statement) {
-        Expression ifCondition = statement.ifExpression;
+        Expression ifCondition = statement.ifConditionExpr;
         List<Statement> ifStatements = statement.ifStatements;
         List<Statement> elseStatements = statement.elseStatements;
 

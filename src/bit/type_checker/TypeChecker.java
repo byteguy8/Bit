@@ -306,7 +306,7 @@ public class TypeChecker implements Expression.Visitor<BitType>, Statement.Visit
     @Override
     public Void visitIfStmt(IfStmt statement) {
         Token ifToken = statement.ifToken;
-        Expression ifConditionExpr = statement.ifExpression;
+        Expression ifConditionExpr = statement.ifConditionExpr;
         List<Statement> ifBody = statement.ifStatements;
         List<Statement> elseBody = statement.elseStatements;
 

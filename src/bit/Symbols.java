@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Symbols<T> {
+    private long id = -1;
     private final Symbols<T> enclosing;
     private final Map<String, T> symbols;
 
@@ -25,8 +26,24 @@ public class Symbols<T> {
         return new SymbolsError();
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public boolean isEnclosed(){
         return enclosing != null;
+    }
+
+    public Symbols<T> getEnclosing() {
+        return enclosing;
+    }
+
+    public Map<String, T> getSymbols() {
+        return symbols;
     }
 
     public Symbols<T> declare(Token identifier, T container) {

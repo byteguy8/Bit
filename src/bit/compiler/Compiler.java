@@ -961,7 +961,7 @@ public class Compiler implements Expression.Visitor<Void>, Statement.Visitor<Voi
 
     @Override
     public Void visitIfStmt(IfStmt statement) {
-        Expression ifExpression = statement.ifExpression;
+        Expression ifExpression = statement.ifConditionExpr;
         List<Statement> ifStatements = statement.ifStatements;
         List<Statement> elseStatements = statement.elseStatements;
 

@@ -1,6 +1,7 @@
 package bit;
 
 import bit.compiler.Compiler;
+import bit.initialization.InitializationChecker;
 import bit.name_resolver.NameResolver;
 import bit.statement.Statement;
 import bit.type_checker.TypeChecker;
@@ -141,6 +142,7 @@ public class Bit {
         Parser parser = new Parser();
         NameResolver nameResolver = new NameResolver();
         TypeChecker typeChecker = new TypeChecker();
+        InitializationChecker initializationChecker = new InitializationChecker();
         Compiler compiler = new Compiler();
 
         try {
@@ -149,6 +151,7 @@ public class Bit {
 
             nameResolver.resolve(statements);
             typeChecker.check(statements);
+            initializationChecker.check(statements);
 
             String output = compiler.compile(statements);
 
